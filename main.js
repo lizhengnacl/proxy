@@ -10,7 +10,7 @@ const config = {
     nginxConf: {
         path: '/Users/lizhengnacl/liz/learn/js_/nginx/nginx.conf',
         // certPath: '',
-        // forceReload: false,
+        // forceReload: false // 断网重连，保证DNS立即清除
     },
     hostConfig: {
         path: '../hosts.md'
@@ -43,6 +43,7 @@ process.on('SIGINT', function () {
 process.on('exit', async () => {
     // 这里必须是一个同步操作
     hosts.clear();
-    // TODO 失效
+    // TODO 刚开始备份一个nginx配置文件，exit时，直接用备份的文件替换掉当前的
+    // 副作用：nginx内存中的内容没有被清除，如果reload conf操作是异步的话
     nginx.clear();
 });
