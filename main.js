@@ -5,15 +5,16 @@
 const parse = require('./lib/parse');
 const hosts = require('./lib/hosts');
 const Nginx = require('./lib/nginx');
+const { resolve } = require('path');
 
 const config = {
     nginxConf: {
-        path: '/Users/lizhengnacl/liz/learn/js_/nginx/nginx.conf',
+        path: resolve(__dirname, './test/nginx.conf'),
         // certPath: '',
         // forceReload: false // 断网重连，保证DNS立即清除
     },
     hostConfig: {
-        path: '../hosts.md'
+        path: resolve(__dirname, './hosts.md')
     }
 };
 
