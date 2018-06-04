@@ -5,6 +5,7 @@
 const parse = require('./lib/parse');
 const hosts = require('./lib/hosts');
 const Nginx = require('./lib/nginx');
+const welcom = require('./lib/welcom');
 const { resolve } = require('path');
 
 const config = {
@@ -34,6 +35,8 @@ hosts.effect().then((lines) => {
 nginx.effect().then((conf) => {
     // nginx.clear();
 });
+
+welcom();
 
 process.stdin.resume();
 
