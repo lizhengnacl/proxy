@@ -10,9 +10,9 @@ const { resolve } = require('path');
 
 const config = {
     nginxConf: {
-        path: resolve(__dirname, './test/nginx.conf'),
-        // certPath: '',
-        // forceReload: false // 断网重连，保证DNS立即清除
+        path: resolve(__dirname, './nginx.conf'),
+        certPath: '/usr/local/nginx/HTTPS',
+        forceReload: false
     },
     hostConfig: {
         path: resolve(__dirname, './hosts.md')
@@ -47,7 +47,5 @@ process.on('SIGINT', function () {
 process.on('exit', async () => {
     // 这里必须是一个同步操作
     hosts.clear();
-    // TODO 刚开始备份一个nginx配置文件，exit时，直接用备份的文件替换掉当前的
-    // 副作用：nginx内存中的内容没有被清除，如果reload conf操作是异步的话
     nginx.clear();
 });
