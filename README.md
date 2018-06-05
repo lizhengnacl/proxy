@@ -8,7 +8,8 @@ cd proxy && npm i
 ```
 
 ## 使用
-依赖nginx，主要是方便调试HTTPS，请先安装nginx
+1. 依赖nginx，主要是方便调试HTTPS，请先安装nginx
+2. 确保已经开启nginx
 
 修改main.js中的配置项
 
@@ -46,3 +47,4 @@ sudo node main.js
 1. HTTPS 支持，证书路径 `done`
 2. 恢复nginx config `done`
 3. 依赖检测，nginx
+3. 判断nginx是否启动
