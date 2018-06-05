@@ -43,6 +43,12 @@ hosts配置文件
 sudo node main.js
 ```
 
+清除浏览器DNS缓存
+
+```
+chrome://net-internals/#dns
+```
+
 ## TODO
 1. HTTPS 支持，证书路径 `done`
 2. 恢复nginx config `done`
